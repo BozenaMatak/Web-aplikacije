@@ -30,11 +30,11 @@ export default {
   methods: {
     fetchPosts(term, createdBy) {
       term = term || store.searchTerm
-      fetch(`http://localhost:3000/posts?${createdBy}=${term}`) //iskreno nisam ovo ovako nikad pisala pa ne znam ni što točno znači
+      fetch(`http://localhost:3000/posts?${createdBy}=${term}`)
         .then(response => {
           return response.json()
         })
-        .then(data => { //pokusavala sam i ovo stavit dolje u search, ali mislim da ne treba
+        .then(data => { 
           console.log("Podaci s backenda", data)
           this.cards = data.map(doc => {
             return {id: doc.id, url: doc.source, email: doc.createdBy, title: doc.title, posted_at: Number(doc.postedAt)}
@@ -42,19 +42,18 @@ export default {
         })
     },
 
-   search(title, createdBy){ //kad pokrenem program ispada kao da se search uopće ne pokreće
-     console.log(createdBy); //mislim da mi ovdje ne prepoznaje što je uopće title jer kad u tražilicu napišem bilo što u konzoli mi se samo ispišu stva 3 posta
+   search(title, createdBy){ 
+     console.log(createdBy); 
      if(!title){
        this.fetchPosts(createdBy,"createdBy")
      }
      else if(!createdBy){
-       this.fetchPosts(title, "title") //pokusavala sam stavit i tipa (title, "pula"), al opet ništa
+       this.fetchPosts(title, "title")
      }
       else{
         this.fetchPosts(_any, "_any")
       }
      },
-      //ne kuzim stvarno kako treba ovaj zadatak funkcionirat, što treba radit pokusala sam vec nez sta sve ne
 
 
     gotoDetails(card) {
