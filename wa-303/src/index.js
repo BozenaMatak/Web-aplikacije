@@ -56,7 +56,7 @@ app.get('/posts', (req, res) => {
 })
 
 
-//za 301 zadatak
+
 app.get('/postovi', (req, res) => {
     let posts = storage.posts
     let query = req.query
@@ -72,7 +72,7 @@ app.get('/postovi', (req, res) => {
     res.json(posts)
 })
 
-//zavrsetak 301 zadatka
+
 
 
 
