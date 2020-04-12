@@ -41,8 +41,8 @@ app.get('/posts', async (req, res) => {
     //if(query.title){
       //  selekcija.title = new RegExp(query.title)
     //}
-
     
+    //402.zadatak
     var d = new Date();
     var six=6*30*24*60*60*1000;
     var n = d.getTime() - six;
